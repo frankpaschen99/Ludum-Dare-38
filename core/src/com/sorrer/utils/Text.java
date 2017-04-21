@@ -11,85 +11,85 @@ public class Text {
 	GlyphLayout layout;
 	BitmapFont font;
 	boolean isFreetype;
-	
+
 	FreeTypeFontGenerator generator;
 	FreeTypeFontParameter params;
-	
-	public Text(BitmapFont bFont){
+
+	public Text(BitmapFont bFont) {
 		isFreetype = false;
 		this.font = bFont;
 		layout = new GlyphLayout();
 		layout.setText(font, "null");
 	}
-	
-	public Text(FreeTypeFontGenerator ftfg){
+
+	public Text(FreeTypeFontGenerator ftfg) {
 		isFreetype = true;
 		this.generator = ftfg;
 		params = new FreeTypeFontParameter();
 		this.font = this.generator.generateFont(params);
 		layout = new GlyphLayout();
 		layout.setText(font, "null");
-		
+
 	}
-	
-	public Text(FreeTypeFontGenerator ftfg, FreeTypeFontParameter params){
+
+	public Text(FreeTypeFontGenerator ftfg, FreeTypeFontParameter params) {
 		isFreetype = true;
 		this.generator = ftfg;
 		this.params = params;
 		this.font = this.generator.generateFont(params);
 		layout = new GlyphLayout();
 		layout.setText(font, "null");
-		
+
 	}
-	
+
 	/**
 	 * Use to update freetype font
 	 */
-	public void update(){
+	public void update() {
 		this.font = generator.generateFont(params);
 	}
-	
-	public void setColor(Color color){
-		if(isFreetype){
+
+	public void setColor(Color color) {
+		if (isFreetype) {
 			params.color = color;
 			return;
 		}
 		font.setColor(color);
 	}
-	
-	public void setFontSize(float fontSize){
-		if(isFreetype){
-			params.size = (int)fontSize;
+
+	public void setFontSize(float fontSize) {
+		if (isFreetype) {
+			params.size = (int) fontSize;
 			return;
 		}
-		font.getData().setScale(fontSize);	
+		font.getData().setScale(fontSize);
 	}
-	
-	public void setParams(FreeTypeFontParameter params){
-		if(!isFreetype) return;
+
+	public void setParams(FreeTypeFontParameter params) {
+		if (!isFreetype)
+			return;
 		this.params = params;
 		this.font = this.generator.generateFont(params);
 	}
-	
-	public void draw(String text, SpriteBatch batch, float x, float y){
+
+	public void draw(String text, SpriteBatch batch, float x, float y) {
 		layout.setText(font, text);
 		font.draw(batch, layout, x, y);
 	}
-	
-	public float getStringLength(String text){
+
+	public float getStringLength(String text) {
 		layout.setText(font, text);
 		return layout.width;
 	}
-	
-	public float getStringHeight(String text){
+
+	public float getStringHeight(String text) {
 		layout.setText(font, text);
 		return layout.height;
 	}
-	
-	public void dispose(){
+
+	public void dispose() {
 		generator.dispose();
 		font.dispose();
 	}
-	
-	
+
 }
