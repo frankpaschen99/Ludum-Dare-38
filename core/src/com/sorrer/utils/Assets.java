@@ -3,6 +3,7 @@ package com.sorrer.utils;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
 
@@ -35,6 +36,9 @@ public class Assets {
 	// AssetDescriptor<Texture>("wood_icon.png", Texture.class);
 	//
 	// public static final ParticleEffect fire_particle = new ParticleEffect();
+	
+	public static final AssetDescriptor<Texture> worker_ant = new AssetDescriptor<Texture>("worker_ant.png", Texture.class);
+
 
 	public static void load() {
 		// fire_particle.load(Gdx.files.internal("fire.particle"),
