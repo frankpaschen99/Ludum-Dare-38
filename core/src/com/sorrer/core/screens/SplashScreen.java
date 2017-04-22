@@ -151,7 +151,7 @@ public class SplashScreen implements Screen {
 			light.setColor(new Color(245f / 255f, 245f / 255f, 245f / 255f, lightSensitivity * .9f));
 		}else if(splashCount == 4){
 			PrintLog.printGame("Moving to game screen");
-			game.setScreen(new GameScreen(game));
+			game.setScreen(new MainMenuScreen(game));
 		}
 		
 	}
