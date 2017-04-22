@@ -1,16 +1,16 @@
 package com.sorrer.core.entities;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.sorrer.utils.Assets;
 
 import box2dLight.RayHandler;
 
 public class QueenAnt extends AntBase {
 
-	public QueenAnt(Texture t) {
-		super(t);
+	public QueenAnt(int posX, int posY) {
+		super(Assets.manager.get(Assets.queen_ant), posY, posY);
 		// TODO Auto-generated constructor stub
 	}
 

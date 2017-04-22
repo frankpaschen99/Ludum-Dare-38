@@ -9,9 +9,9 @@ import box2dLight.RayHandler;
 
 public class WorkerAnt extends AntBase {
 	
-	public WorkerAnt() {
+	public WorkerAnt(int posX, int posY) {
 				
-		super(Assets.manager.get(Assets.worker_ant));
+		super(Assets.manager.get(Assets.worker_ant), posY, posY);
 
 	}
 	

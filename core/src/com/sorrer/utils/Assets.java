@@ -38,6 +38,8 @@ public class Assets {
 	// public static final ParticleEffect fire_particle = new ParticleEffect();
 	
 	public static final AssetDescriptor<Texture> worker_ant = new AssetDescriptor<Texture>("worker_ant.png", Texture.class);
+	public static final AssetDescriptor<Texture> fighter_ant = new AssetDescriptor<Texture>("fighter_ant.png", Texture.class);
+	public static final AssetDescriptor<Texture> queen_ant = new AssetDescriptor<Texture>("queen_ant.png", Texture.class);
 
 
 	public static void load() {
