@@ -1,3 +1,4 @@
+
 package com.sorrer.core.screens;
 
 import java.util.Random;
@@ -38,7 +39,6 @@ public class SplashScreen implements Screen {
 	PointLight light;
 	OrthographicCamera cam;
 	CoreGame game;
-
 	public SplashScreen(CoreGame game) {
 		this.game = game;
 		cam = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -55,7 +55,7 @@ public class SplashScreen implements Screen {
 		b = new SpriteBatch();
 
 		timer = new Timer(splashBegin);
-
+		
 		Assets.load();
 
 	}
@@ -67,25 +67,24 @@ public class SplashScreen implements Screen {
 
 	float nextFlicker = 0;
 	float lastFlicker = 0;
-	boolean switchL = true;
+	boolean switchL = true;	
 	boolean oncePressed = false;
-
 	@Override
 	public void render(float delta) {
 		Assets.manager.update();
-
-		if ((Gdx.input.isKeyPressed(Keys.ANY_KEY) || Gdx.input.isTouched()) && !oncePressed) {
+		
+		if((Gdx.input.isKeyPressed(Keys.ANY_KEY) || Gdx.input.isTouched()) && !oncePressed){
 			oncePressed = true;
 			this.splashCount = 3;
 		}
-
+		
 		cam.viewportWidth = Gdx.graphics.getWidth();
 		cam.viewportHeight = Gdx.graphics.getHeight();
 		cam.position.set(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2, 0);
 		cam.update();
-
-		light.setPosition(Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2);
-
+		
+		light.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		
 		Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		rayHandler.updateAndRender();
 		b.setProjectionMatrix(cam.combined);
@@ -117,12 +116,12 @@ public class SplashScreen implements Screen {
 				if (System.currentTimeMillis() > cur + 60) {
 					cur = System.currentTimeMillis();
 					Random random = new Random();
-
+					
 					lastFlicker = nextFlicker;
 					nextFlicker = random.nextFloat() + 0.1f;
 				}
-
-				float prog = (float) System.currentTimeMillis() / (float) (cur + 60);
+				
+				float prog = (float)System.currentTimeMillis()/(float)(cur + 60);
 				prog = prog * (nextFlicker - lastFlicker);
 				light.setDistance(
 						((prog + lastFlicker) * madeWithLibgdx.getWidth() * 2) + madeWithLibgdx.getWidth() * .90f);
@@ -137,9 +136,9 @@ public class SplashScreen implements Screen {
 			Gdx.gl20.glClearColor(0, 0, 0, timer.getProgress());
 		} else if (splashCount == 3) {
 
-			float lightSensitivity = (switchL ? 1 - timer.getProgress() : timer.getProgress());
-
-			if (timer.isDone()) {
+			float lightSensitivity = (switchL ? 1  - timer.getProgress() : timer.getProgress());
+			
+			if(timer.isDone()){
 				if (Assets.manager.update()) {
 					splashCount++;
 					return;
@@ -148,14 +147,14 @@ public class SplashScreen implements Screen {
 				timer.start();
 				switchL = (switchL ? false : true);
 			}
-
+			
 			b.setColor(1, 1, 1, lightSensitivity);
 			light.setColor(new Color(245f / 255f, 245f / 255f, 245f / 255f, lightSensitivity * .9f));
-		} else if (splashCount == 4) {
+		}else if(splashCount == 4){
 			PrintLog.printGame("Moving to game screen");
-			game.setScreen(new GameScreen(game));
+			game.setScreen(new MainMenuScreen(game));
 		}
-
+		
 	}
 
 	@Override
