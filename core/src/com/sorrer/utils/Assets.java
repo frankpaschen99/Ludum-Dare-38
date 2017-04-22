@@ -59,6 +59,7 @@ public class Assets {
 		//
 		// manager.load(icon_wood);
 		//
+		manager.load(worker_ant);
 		manager.setLoader(FreeTypeFontGenerator.class,
 				new FreeTypeFontGeneratorLoader(new InternalFileHandleResolver()));
 		manager.load(dialog);

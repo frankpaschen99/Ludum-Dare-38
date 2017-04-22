@@ -56,4 +56,10 @@ public class QueenAnt extends AntBase {
 		return null;
 	}
 
+	@Override
+	public void draw(SpriteBatch b) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -10,8 +10,7 @@ public class MainMenuScreen implements Screen {
 		this.game = game;
 		
 		//Temporary Place Holder
-		
-		game.setScreen(new GameScreen(game));
+
 	}
 	
 	@Override
@@ -21,7 +20,7 @@ public class MainMenuScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
-		
+		game.setScreen(new GameScreen(game));
 	}
 
 	@Override
