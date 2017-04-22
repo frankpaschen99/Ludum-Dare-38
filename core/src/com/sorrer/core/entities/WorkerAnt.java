@@ -59,7 +59,6 @@ public class WorkerAnt extends AntBase {
 	@Override
 	public void draw(SpriteBatch b) {
 		sprite.draw(b);
-		PrintLog.printGame("Sprite pos: " + this.sprite.getX() + ", " + this.sprite.getY());
 	}
 
 }
