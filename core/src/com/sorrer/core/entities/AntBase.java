@@ -10,8 +10,9 @@ public abstract class AntBase extends Entity {
 	
 	private Sprite sprite;
 	
-	public AntBase(Texture t) {
+	public AntBase(Texture t, int posX, int posY) {
 		this.sprite = new Sprite(t);
+		this.sprite.setPosition(posX, posY);
 	}
 	public void draw(SpriteBatch b) {
 		b.begin();
