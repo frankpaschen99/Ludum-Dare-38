@@ -1,15 +1,14 @@
 # Ludum-Dare-38
 
+Theme: "A small world"
+
 ## Staff
     Lead Developer - @sorrer
-    Lead Retard - @frankpaschen99
+    Not-lead Developer - @frankpaschen99
 
 ## Concept
-
+Ants vs. Picnics clone of Clash of Clans
 ## Tech
     LIBGDX
 
 ## Development Schedule
-
-
-# God help us all.
